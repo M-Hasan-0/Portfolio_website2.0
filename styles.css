@@ -1,0 +1,101 @@
+ /* Global Styles */
+        body {
+            font-family: 'Fira Code', monospace; /* Set Fira Code as default, with monospace fallback */
+            background-color: #f8fafc; /* Restored solid background color */
+            /* Removed SVG Background Styles */
+            color: #334155; /* Dark slate text */
+        }
+        .section-padding {
+            padding: 4rem 1rem; /* Responsive padding */
+        }
+        @media (min-width: 768px) {
+            .section-padding {
+                padding: 6rem 2rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .section-padding {
+                padding: 8rem 4rem;
+            }
+        }
+
+        /* Basic animations for hero section */
+        @keyframes fade-in-down {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-down {
+            animation: fade-in-down 1s ease-out forwards;
+        }
+
+        .animate-fade-in-up {
+            animation: fade-in-up 1s ease-out 0.5s forwards; /* Delayed animation */
+        }
+
+        /* Removed scroll-behavior: smooth; from html to allow custom JS scrolling */
+        /* html {
+            scroll-behavior: smooth;
+        } */
+
+        /* Hide sections by default for dynamic display */
+        .hidden-section {
+            display: none;
+        }
+
+        /* Custom Solid Shadow Button Style */
+        .btn-solid-shadow {
+            /* Initial shadow for the "lifted" look */
+            box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.7); /* Larger and darker for prominence */
+            transition: all 0.2s ease-out; /* Smooth transition for hover effects */
+            border: 2px solid rgba(0, 0, 0, 0.7); /* Add a border for a more defined rectangular shape */
+            /* Ensure no border-radius from this class */
+            border-radius: 0;
+        }
+
+        .btn-solid-shadow:hover {
+            /* On hover, move the button slightly and reduce the shadow to simulate pressing */
+            transform: translate(3px, 3px); /* Move button down and right */
+            box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.7); /* Move shadow with it */
+        }
+
+        /* Specific styles for contact links to make them look like buttons */
+        .contact-link-btn {
+            display: inline-block; /* Allows applying padding and background */
+            padding: 0.75rem 1.5rem; /* py-3 px-6 equivalent */
+            background-color: #4f46e5; /* Tailwind indigo-600 */
+            color: #ffffff; /* White text */
+            font-weight: 700; /* font-bold */
+            /* Removed border-radius here */
+            text-decoration: none; /* Remove underline */
+            margin-right: 1rem; /* Spacing between links */
+            margin-bottom: 1rem; /* For wrapping on small screens */
+        }
+        /* Apply solid shadow to contact links */
+        .contact-link-btn.btn-solid-shadow {
+            box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.7);
+            border: 2px solid rgba(0, 0, 0, 0.7);
+            /* Ensure no border-radius from this class */
+            border-radius: 0;
+        }
+        .contact-link-btn.btn-solid-shadow:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.7);
+        }
