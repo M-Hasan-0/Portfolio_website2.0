@@ -1,12 +1,4 @@
 // fire base config
-const firebaseConfig = {
-  apiKey: "AIzaSyCc5CrQYoQQW_tkIwmbw30-4C_hm4W0yeI",
-  authDomain: "my-portfolio-projects-ab8c7.firebaseapp.com",
-  projectId: "my-portfolio-projects-ab8c7",
-  storageBucket: "my-portfolio-projects-ab8c7.firebasestorage.app",
-  messagingSenderId: "752289067710",
-  appId: "1:752289067710:web:58aa77cb2a4bd8176ea4ef"
-};
 
 
 
@@ -80,6 +72,28 @@ const projects = [
         technologies: ['HTML', 'CSS', 'JavaScript', 'JSON Data']
     }
 ];
+
+
+
+
+const person = {
+    logo:"MH",
+    name:"Mahedi Hasan",
+    intro:"A passionate Engineer building web applications pwered by AI."
+}
+
+
+// Get project logo , hero Name , hero intro 
+const logo = document.getElementById("logo-link");
+const hero_name = document.getElementById("heroName");
+const hero_intro = document.getElementById("heroIntro");
+
+// Modifying project logo , hero Name , hero intro 
+logo.innerText = person.logo;
+hero_intro.innerText = person.intro;
+hero_name.innerText = person.name;
+
+
 
 // Get main sections and project details section
 const mainContent = document.getElementById('main-content');
@@ -243,7 +257,7 @@ heroViewWorkBtn.addEventListener('click', function(e) {
 // Initial render when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
 
-    fetch_data();
+    // fetch_data();
 
     renderProjectCards(projects);
 
