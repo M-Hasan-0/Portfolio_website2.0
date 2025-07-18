@@ -3,29 +3,29 @@
 
 
 
-let fetched_projects = [];
+// let fetched_projects = [];
 
 
-// Define Firebase funcitons
-const app = firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+// // Define Firebase funcitons
+// const app = firebase.initializeApp(firebaseConfig);
+// const db = firebase.firestore();
 
-// Read all documents from "test_projects" collection
-async function fetch_data(){
-    try {
-        const response = await db.collection("test_projects").get();
-        fetched_projects = [];
-        response.forEach(doc=>{
-            fetched_projects.push({id:doc.id,...doc.data()})
-        })
-        // renders project card from fetched data 
-        renderProjectCards(fetched_projects);
+// // Read all documents from "test_projects" collection
+// async function fetch_data(){
+//     try {
+//         const response = await db.collection("test_projects").get();
+//         fetched_projects = [];
+//         response.forEach(doc=>{
+//             fetched_projects.push({id:doc.id,...doc.data()})
+//         })
+//         // renders project card from fetched data 
+//         renderProjectCards(fetched_projects);
 
-    }catch (error) {
-        console.error("Error reading documents: ", error);
-    }
+//     }catch (error) {
+//         console.error("Error reading documents: ", error);
+//     }
 
-}
+// }
 
 
 
