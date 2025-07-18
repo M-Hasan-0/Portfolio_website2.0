@@ -11,21 +11,30 @@ const firebaseConfig = {
 
 
 
-
+let fetched_projects = [];
 
 
 // Define Firebase funcitons
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-// Read all documents from "users" collection
-db.collection("users").get().then((querySnapshot) => {
-querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} =>`, doc.data());
-});
-}).catch((error) => {
-    console.error("Error reading documents: ", error);
-});
+// Read all documents from "test_projects" collection
+async function fetch_data(){
+    try {
+        const response = await db.collection("test_projects").get();
+        fetched_projects = [];
+        response.forEach(doc=>{
+            fetched_projects.push({id:doc.id,...doc.data()})
+        })
+        // renders project card from fetched data 
+        renderProjectCards(fetched_projects);
+
+    }catch (error) {
+        console.error("Error reading documents: ", error);
+    }
+
+}
+
 
 
 // Define project data
@@ -171,7 +180,7 @@ function showProjectDetails(projectId) {
 }
 
 // Function to render project cards
-function renderProjectCards() {
+function renderProjectCards(projects) {
     const projectsGrid = document.getElementById('projects-grid');
     if (!projectsGrid) return;
 
@@ -233,7 +242,10 @@ heroViewWorkBtn.addEventListener('click', function(e) {
 
 // Initial render when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
-    renderProjectCards();
+
+    fetch_data();
+
+    renderProjectCards(projects);
 
     // Handle direct navigation to sections from URL hash (e.g., #contact)
     // This ensures main content is shown if someone lands on a specific section
